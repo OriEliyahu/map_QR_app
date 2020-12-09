@@ -5,17 +5,21 @@ import MapboxGL from '@react-native-mapbox-gl/maps';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-MapboxGL.setAccessToken('pk.eyJ1Ijoib21lcnRhdm9ybWFwIiwiYSI6ImNraWg5ZmZtbDBmYnkzM28zdjJzaW93MzcifQ.eo0ZXB8ZY1hQ3GMp6gJjbA');
 
+MapboxGL.setAccessToken('pk.eyJ1Ijoib21lcnRhdm9ybWFwIiwiYSI6ImNraWg5ZmZtbDBmYnkzM28zdjJzaW93MzcifQ.eo0ZXB8ZY1hQ3GMp6gJjbA');
 const App = () => {
   return (
     <View style={styles.page}>
       <View style={styles.container}>
-         <MapboxGL.MapView style={styles.map} />
+        <MapboxGL.MapView
+          style={styles.map}
+          logoEnabled={false}
+          zoomEnabled={true} />
       </View>
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   page: {
@@ -25,7 +29,7 @@ const styles = StyleSheet.create({
   },
   container: {
     height: (windowHeight * 0.97),
-    width: (windowWidth * 0.9999)
+    width: (windowWidth * 0.9999),
   },
   map: {
     flex: 1
