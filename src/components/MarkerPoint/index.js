@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { MarkerView } from '@react-native-mapbox-gl/maps';
+
 import { Image, TouchableOpacity, View, Modal, Text } from 'react-native';
+
 import pointMarkerSource from '../../assets/MarkerLogo.png';
 import QRCode from 'react-native-qrcode-svg';
 import styles from './styles';
@@ -42,12 +44,12 @@ const MarkerPoint = (props) => {
                 </View>
             </Modal> */}
 
-            <MarkerView
-                coordinate={coordinate}
-                x={x}
-                y={y}
-                children={getChildren()}
-            />
+      <MarkerView
+            coordinate={coordinate}
+            x={x}
+            y={y}
+            children={props.isTransparent === true ? <View/> : <Image style={styles.Marker} source={pointMarkerSource} />}
+        />
         </View>
     );
 }
