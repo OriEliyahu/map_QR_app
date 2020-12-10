@@ -1,6 +1,6 @@
 import React from 'react';
 import { MarkerView } from '@react-native-mapbox-gl/maps';
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
 import pointMarkerSource from '../../assets/MarkerLogo.png';
 import styles from './styles';
 
@@ -15,7 +15,7 @@ const MarkerPoint = (props) => {
             coordinate={coordinate}
             x={x}
             y={y}
-            children={<Image style={styles.Marker} source={pointMarkerSource} />}
+            children={props.isTransparent === true ? <View/> : <Image style={styles.Marker} source={pointMarkerSource} />}
         />
     );
 }
